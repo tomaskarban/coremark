@@ -32,7 +32,13 @@ Simple and straightforward:
 
 ```
 docker build -t coremark .
-docker run coremark
+docker run --name coremark coremark
+```
+
+The container stops at the end. You can run the benchmark again:
+
+```
+docker start -ai coremark
 ```
 
 ## Benchmark Results
