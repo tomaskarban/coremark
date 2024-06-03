@@ -16,13 +16,14 @@ add one small script `coremark.sh` that gets executed when the container starts.
 ## Execution
 
 The script executes the following steps:
- - updates the package manager apk,
- - upgrades all existing packages,
- - installs GCC and git,
- - clones the CoreMark source code from https://github.com/eembc/coremark.git,
- - detects the number of cores using `nproc`,
- - builds and executes CoreMark,
- - tails the benchmark result.
+
+- updates the package manager apk,
+- upgrades all existing packages,
+- installs GCC and git,
+- clones the CoreMark source code from <https://github.com/eembc/coremark.git>,
+- detects the number of cores using `nproc`,
+- builds and executes CoreMark,
+- tails the benchmark result.
 
 When the script ends, the container is stopped.
 
@@ -30,14 +31,14 @@ When the script ends, the container is stopped.
 
 Simple and straightforward:
 
-```
+```bash
 docker build -t coremark .
 docker run --name coremark coremark
 ```
 
 The container stops at the end. You can run the benchmark again:
 
-```
+```bash
 docker start -ai coremark
 ```
 
@@ -45,8 +46,7 @@ docker start -ai coremark
 
 The end of the output looks like this:
 
-```
-------------------------------------------------------
+```text
 Correct operation validated. See README.md for run and reporting rules.
 CoreMark 1.0 : 138206.388206 / GCC13.2.1 20231014 -O2 -DMULTITHREAD=6 -DUSE_FORK -DPERFORMANCE_RUN=1  -lrt / Heap / 6:Fork
 ```
